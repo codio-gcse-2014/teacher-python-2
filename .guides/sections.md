@@ -829,3 +829,253 @@ It should output:
 Enter time in seconds >> 300
 5.0
 ```
+---
+title: Parameter Passing (parameter inputs)
+files: []
+layout: ""
+step: 07-parameters
+
+---
+To take full advantage of functions, though, we need to talk about function inputs, also known as “parameters”. 
+
+This would allow us to reuse the code even more, as it makes our functions more flexible. 
+
+It will also allow to pass parameters between a few subroutines without sharing them with ALL subroutines (that would waste memory as data would not be garbage collected until the end of the program).
+
+## Task 1
+
+Click to open task file : [task-1.py](open_file "07-parameters/task-1.py").
+
+Run the program by pressing the 'Run File' button in the top menu.
+
+It should output:
+```python
+Thunder!Thunder!Thunder!Thunder!
+```
+## Task 2
+
+Click to open task file : [task-2.py](open_file "07-parameters/task-2.py").
+
+Run the program by pressing the 'Run File' button in the top menu.
+
+It should again output:
+```python
+Thunder!Thunder!Thunder!Thunder!
+```
+as 4 is passed into the function as x.
+
+Modify the function to print it 100 times.
+
+## Task 3
+
+Now, we can reduce our use of hated global variables in Iterations & Subs section: Task 4, and we could try to get the functions to talk to each other directly, through passing parameters and returning values.
+
+Click to open task file : [task-3.py](open_file "07-parameters/task-3.py").
+
+Run the program by pressing the 'Run File' button in the top menu.
+
+It should output:
+```python
+Enter time in seconds >> 300
+5.0
+```
+
+## Task 4
+
+Rework the program to not feature global variables at all, through the use of parameter passing – which is a safe and memory-efficient Pythonic way
+
+Click to open task file : [task-4.py](open_file "07-parameters/task-4.py").
+
+### Lambda functions (getting outdated)
+There is another way to define functions in Python in a style of “functional programming”. 
+
+Such functions are known as “lambda functions” in Python and are used for more concise throwaway code that will not be shared with other programmers and extensively reused.
+
+Consider:
+```python
+spell=lambda x:print("Thunder "*x)
+spell(4)
+```
+
+This is equivalent to the Task 2. It is harder to read but faster to type, so its use will depend on a programmer’s coding style. 
+
+We need to be aware of this functional style as pupils often come across it on programming forums.
+
+## Task 5
+### Generating lottery tickets
+
+This is a program that makes use of random number generation and appending to a list and follows principles of procedural programming
+
+Click to open task file : [task-5.py](open_file "07-parameters/task-5.py").
+
+Run the program by pressing the 'Run File' button in the top menu.
+
+It should output:
+```python
+Welcome to Station Rd Corner Store. Next draw tomorrow.
+How many lottery tickets are you buying today? >> 3
+Here are your tickets, it will be £6.
+[17, 48, 50, 44, 38, 21, 12, 8]
+[28, 45, 22, 33, 36, 9, 32, 46]
+[36, 8, 17, 21, 30, 4, 13, 9]
+```
+
+**Notes:**
+- Import random enables built-in random number generator facility in Python.
+- We are generating 7 number tickets, each number is between 1 and 49 through `random.randint(1,49)`. (More on random number generators here: http://docs.python.org/3.3/library/random.html)
+- `if n not in lucky` is a handy Python way to check if an item exists in a list, we use it to generate non-repeating numbers, as of course, real lottery winning numbers don’t have repeated numbers in the same draw.
+-We also use the format “mail-merge” style facility where curly brackets inside a string can be replaced with a variable brought into the string.
+
+## Task 6
+
+Here is the code for checking if two lists share any items:
+
+Click to open task file : [task-6.py](open_file "07-parameters/task-6.py").
+
+Run the program by pressing the 'Run File' button in the top menu.
+
+It should output:
+```python
+found on both lists 36
+found on both lists 9
+2
+```
+
+Rework the program so that there is a function called `check_common` that handles all the comparisons.
+
+Also then rework the `check_common` function into `check_common_para` function which takes the two lists as parameter inputs
+
+## Task 7
+
+### Major extension:
+We reworked our lottery ticket buying program to create a nested list of lottery numbers rather than just print them out.
+
+A couple words about nested lists (see the Data Structures tutorial for more information on these and other data structures). For now, we can just say, this is Python’s answer to multidimensional arrays.
+
+Consider this simple implementation of Noughts and Crosses.
+Example 1.0:
+```python
+row=[" "," "," "]
+board=[row,row,row]
+print(board)
+```
+You can see that “row” is a list of 3 elements containing empty strings. “board” is a list of lists – it contains 3 “pointers” to row.
+Output:
+```python
+[[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]
+```
+
+“Pointer” means that rather than copying row 3 times and inserting into the list, we have them all point to the same list. 
+
+Let’s make a first move in this game.
+
+Click to open task file : [task-7.py](open_file "07-parameters/task-7.py").
+
+Run the program by pressing the 'Run File' button in the top menu.
+
+It should output:
+```python
+[[' ', 'x', ' '], [' ', 'x', ' '], [' ', 'x', ' ']]
+```
+We only put one x, why is there 3? This is because all 3 elements in board refer to the same list called row. When we change row, it updates all the references to itself in board
+
+This is not very useful, when we play, we want to be able to target individual “cells” without unnecessary duplication. 
+
+We can improve on this by using “shallow copy” of lists. 
+
+As you will see below, by putting `row[:]` rather than `row` inside board, we put a copy, a snapshot of row’s contents into board. 
+
+```python
+row=[" "," "," "]
+board=[row[:],row[:],row[:]]
+print(board)
+
+row[1]="x" #the link between the source row and the
+print(board)  #inserted copies has been severed
+board[1][1]="x" #set the second element of row to 1
+print(board)
+```
+It would then output:
+```python
+[[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]
+[[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]
+[[' ', ' ', ' '], [' ', 'x', ' '], [' ', ' ', ' ']]
+```
+While there is a way to “deep copy” lists, we will not get into them but use a different structure:
+```python
+row0=[" "," "," "]
+row1=[" "," "," "]
+row2=[" "," "," "]
+board=[row0,row1,row2]
+
+row1[1]="x"
+print(board)
+```
+Would then output:
+```python
+[[' ', ' ', ' '], [' ', 'x', ' '], [' ', ' ', ' ']]
+```
+## Task 8
+### A simple 2 player Noughts and Crosses
+
+Click to open task file : [task-8.py](open_file "07-parameters/task-8.py").
+
+Run the program by pressing the 'Run File' button in the top menu.
+
+It should output:
+```python
+WELCOME TO MY PYTHON NOUGHTS AND CROSSES
+PLAY ROWS 0 TO 2, COLUMNS 0 TO 2
+PLAYING OCCUPIED CELL LOSES A TURN
+ENTERING INVALID COORDINATES LOSES A GAME
+********************
+['', '', '']
+['', '', '']
+['', '', '']
+X enter row,col separated by comma, e.g. 1,2 >> 1,1
+['', '', '']
+['', 'x', '']
+['', '', '']
+0 enter row,col separated by comma, e.g. 1,2 >> 1,2
+['', '', '']
+['', 'x', '0']
+['', '', '']
+X enter row,col separated by comma, e.g. 1,2 >> 3,3
+x lost!
+['0', '0', '0']
+['0', '0', '0']
+['0', '0', '0']
+GAME OVER!
+```
+
+How would you add a facility to tell who won by checking rows, columns and diagonals?
+
+## Task 9
+We come back to the station road program which now features nested lists.
+
+Click to open task file : [task-9.py](open_file "07-parameters/task-9.py").
+
+Run the program by pressing the 'Run File' button in the top menu.
+
+It should output as before :
+```python
+Welcome to Station Rd Corner Store. Next draw tomorrow.
+How many lottery tickets are you buying today? >> 3
+Here are your tickets, that will be £6.
+[23, 35, 24, 43, 26, 49, 41, 16]
+[38, 7, 36, 26, 40, 12, 50, 48]
+[25, 23, 50, 27, 47, 29, 44, 28]
+```
+
+Extend the program to generate one more ticket, the “winning ticket” and then the program will run through all the tickets the person bought (you might have to use a nested list for this) and check if any of them have more than 4 numbers that match with the winning number.
+
+
+
+
+
+
+
+
+
+
+
