@@ -678,3 +678,70 @@ Quitting...
 Click to open task file : [task-7.py](open_file "04-funcsubs/task-7.py").
 
 Extend the program to perform multiplication and division.
+---
+title: Validation
+files: []
+layout: ""
+step: 05-validation
+
+---
+Functions are great for validation. The most basic validation method in Python (and many other languages) is the try: except: else: structure. 
+
+This “try” structure will prevent a usual shell crash and allow our program to continue. It is triggered by an invalid operation.
+
+Every time user input is required, we want to validate it. 
+
+In this program we accept user input 3 times: choice of operator, number 1 and number 2. Python will accept anything from the user prompt. 
+
+The crash would happen if user didn’t type anything or typed a word, and then when we try to convert this to an integer (in case of the operator choice) or float (the two numbers) it would crash. Here is validation for the choice of operation:
+
+## Task 1
+Click to open task file : [task-1.py](open_file "05-validation/task-1.py").
+
+As you can see, we recognise the exact place where a program might crash if the user typed in something that wasn’t a number, the try structure is shown on bold. 
+
+A sensible assumption in this case is to set it to zero if there was no valid input – this will allow the program to quit in a usual way. 
+
+Otherwise (“else”), it will pass the function value as before. 
+
+## Task 2
+Click to open task file : [task-2.py](open_file "05-validation/task-2.py").
+
+Run the program by pressing the 'Run File' button in the top menu.
+
+It should output:
+```python
+0.625
+The show must go on
+```
+
+## Task 3
+
+We can further improve on this program by validating the other two inputs. How would you do it?
+
+Click to open task file : [task-3.py](open_file "05-validation/task-3.py").
+
+## Task 4
+
+We can find out the length of a word through the len function. e.g.
+```python
+a=”monkey”
+b=len(a)
+print(b)
+```
+
+should give us 6 (for the 6 letters in “monkey”).
+
+Design a presence check validation function with one input that returns True if the length of input is not zero, or False if its length is zero.
+
+Click to open task file : [task-4.py](open_file "05-validation/task-4.py").
+
+## Task 5
+
+Integrate your function from Task 4 into Task 3. 
+
+Assume the following order of validation: 
+- Presence check, 
+- Numeric check.
+
+Click to open task file : [task-5.py](open_file "05-validation/task-5.py").
