@@ -392,14 +392,52 @@ Run the program by pressing the 'Run File' button in the top menu to see
 
 ## Task 12 (optional task for advanced pupils only)
 
+Click to open task file : [task-12.py](open_file "03-functions/task-12.py").
+
 Finding out the rank of a number in a list. This is one of the standard pseudocode tasks that comes up in various exams at GCSE level. The pupils will be familiar with this concept from their GCSE. This and the next task, while optional, provide an example of Python working with lists that are passed as a parameter into a function.
 
 The function in this program is to return a ranking of a provided value in a given list. This is a more traditional method, where we iterate through a list (passed in as “l”) and compare each item (“x”) to n. If it is larger, we increment our counter. In the end, we know how many items were larger than n which gives us n’s ranking.
 
-Click to open task file : [task-12.py](open_file "03-functions/task-12.py").
+Implement the following program. Create the pseudocode for it.
+
+This demonstrates a couple of concepts:
+- selection inside an iteration
+- counter
+- iterating through a list
+- passing list as one of the parameters into a function.
+
+```python
+m=[3,5,7,1,8,12] # a list of numbers, e.g. pieces of litter picked up by respective pupils
+
+def r1(mylist,n):
+    c=1
+    for x in mylist: 
+    #iterate through every item in mylist
+       if x>n: 
+       #x acts as a wildcard in Scrabble, it assumes the values of all list items in turn, which is a very handy Python feature
+           c+=1 
+           #if the previous line is true (list item is > n) we increment the counter.
+    return c 
+    #functions stops and passes the return value to print
+
+print(r1(m,2))
+#check what would be the rank  (place to use sports terms) of 2 amongst the values in the list - we expect 6, as there are 5 numberson that list larger than 2 (5, 7, 8, and 12). So, a pupil who picked up only two pieces of litter will be ranked 6th in a litter picking competition.
+print(r1(m,8))  
+#check what would be the rank  (place to use sports terms) of 8 amongst the values in the list - we expect 2, as there is only 1 number  on that list larger than 8, which is 12, so 8 is in the second place. So, a pupil who picked up only two pieces of litter will be ranked 6th in a litter picking competition.
+```
+
+The output should be:
+```python
+6
+2
+```
+
+
 
 
 ## Task 13 (optional task for advanced pupils only)
+
+Click to open task file : [task-13.py](open_file "03-functions/task-13.py").
 
 Using Python’s built-in max function.
 
@@ -417,12 +455,48 @@ We are comparing the parameter “n” to each list max (the list is passed in a
 
 This way, we know how many numbers were larger than n – which is what a ranking is.
 
-Click to open task file : [task-13.py](open_file "03-functions/task-13.py").
+```python
+m=[4,8,2,9] #prep a list
+def r(l,n): #start a function definition
+    ll=l[:] #create a local copy of a list m
+    c=1 #default value for a counter
+    while max(ll)!=n: #keep removing the largest number in list until #this list’s maximum number is not larger than our n
+       ll.remove(max(ll))
+       c+=1 #increment counter
+    return c #function stops and passes the value out
+print(r(m,2)) #output the rank of 2 in the list
+print(r(m,8)) #output the rank of 8 in the list
+```
+
+The output should be:
+```python
+4
+2
+```
+**Extension:** rerun the program but with values from the previous task. Did you get the same result? Would you say this method is better? [not better, just different, as code is not shorter or easier to read].
+
 
 ## Task 14 
 Subs can be stored in lists. Run a string as a command through “exec”.
 
 Click to open task file : [task-14.py](open_file "03-functions/task-14.py").
+
+**Which 'previous exercise' is being referred to here**
+```python
+print("task 1x: subs can be assigned to list items")
+
+print("mixed data lists are ok in Python")
+
+my_list=[sub_hw_para("Bee's","knees"),sub_hw_para("I","Robot"),
+         "sub_hw_para({},{})", 2,"Ronnies"]
+
+my_list[0]
+my_list[1]
+exec(my_list[2].format('str(my_list[3])','my_list[4]')) 
+#this will trigger those items in the list
+#that are subs to run, the rest will be ignored
+#this can be used instead of the switch statement
+```
 
 The SWITCH statement (otherwise known as CASE STATEMENT) is on the syllabus and is widely used in other languages, but not in Python. 
 
@@ -435,3 +509,172 @@ The creator of Python thought it was not needed as IF is more universal and capa
 
 
 
+
+---
+title: Combining functions and subs. Sharing data between them
+files: []
+layout: ""
+step: 04-funcsubs
+
+---
+## Task 1
+Click to open task file : [task-1.py](open_file "04-funcsubs/task-1.py").
+
+Run the program by pressing the 'Run File' button in the top menu.
+
+It should output:
+```python
+Enter distance in miles100
+160.0 km
+```
+
+Note the use of the input parameter in the function. Indicate the line of code where this parameter acquires its value.
+
+Implement extensions to this task: 
+- convert line 3 into a function that returns whatever the user typed in; 
+- replace 1.6 with a constant called FACTOR.
+
+## Task 2
+Click to open task file : [task-2.py](open_file "04-funcsubs/task-2.py").
+
+Review this modification of the last line:
+```python
+print(miles2km(int(input("Enter distance in miles"))),"km")
+```
+and consider the advantages and disadvantages of it compared to the previous version.
+
+We can freely combine subs and functions. 
+
+However, then we have to plan out how they will share data between themselves, being semi-self-contained. 
+
+We can use “global” variables for that. These variables are first used outside any procedure and are visible to all of them (but remain read-only unless specifically authorised by us to change their values). 
+
+We can also use functions that return values to feed into another function or a sub.
+
+This brings us to the concept of “variable scope”. 
+
+Some variables are declared in the indented block of a function definition. 
+
+They are only visible to the function they were placed in. 
+
+Other parts of the program will not see them. 
+
+Even worse, if we try to use them in other parts of the program, Python will create (it is dynamically typed, so it creates variables on as-needed basis) another variable with the SAME name but value of zero. 
+This results in many mistakes. 
+
+Alternatively, variables can be declared outside of function definitions in regular code and are accessible to the whole program, they are called global variables. 
+
+However, functions can read the value of global variables but can’t write to them unless we “give the security clearance” to these functions to do so.
+
+## Task 3
+Click to open task file : [task-3.py](open_file "04-funcsubs/task-3.py").
+
+Run the program by pressing the 'Run File' button in the top menu and the output should be something similar to:
+
+```python
+What is your name?Bob
+Bob is a nice name, can I borrow 50p?
+```
+This program has 3 subs. Can you say the order in which these subs are executed?
+
+## Task 4
+
+An extension of this program illustrates how calling subs is ideal in iteration, such as a rudimental user interface here:
+
+Click to open task file : [task-4.py](open_file "04-funcsubs/task-4.py").
+
+Run the program by pressing the 'Run File' button in the top menu and the output should be something similar to:
+
+```python
+What is your name? or 'bye' to quitBob
+Bob can I borrow 50p?
+What is your name? or 'bye' to quitPeter
+Peter can I borrow 50p?
+What is your name? or 'bye' to quitbye
+See you later, alligator
+```
+## Task 5
+
+A further extension of this program:
+
+Click to open task file : [task-5.py](open_file "04-funcsubs/task-5.py").
+
+Run the program by pressing the 'Run File' button in the top menu and the output should be:
+```python
+********************
+Press 
+1 to add new user
+2 to see customer balance
+3 to adjust balance
+4 to see customer list
+5 to delete a customer
+Any other key to quit
+********************
+ >> 2
+Would ask for ID and show balance
+********************
+Press 
+1 to add new user
+2 to see customer balance
+3 to adjust balance 
+4 to see customer list
+5 to delete a customer
+Any other key to quit
+********************
+ >> 5
+ID? 34
+Delete user with id=34
+********************
+Press 
+1 to add new user
+2 to see customer balance
+3 to adjust balance 
+4 to see customer list
+5 to delete a customer
+Any other key to quit
+********************
+ >> 
+bye!
+```
+- Note, it only does the interface, nothing else
+
+## Task 6
+
+Click to open task file : [task-6.py](open_file "04-funcsubs/task-6.py").
+
+Run the program by pressing the 'Run File' button in the top menu and the output should be:
+```python
+* P * Y * T * H * O * N *   * C * A * L * C * U * L * A * T * O * R
+Welcome to my calculator
+Type 
+1 to add, 
+2 to subtract, 0 to quit 
+>> 1
+Enter first number >> 2
+Enter second number >> 3
+5.0
+ * P * Y * T * H * O * N *   * C * A * L * C * U * L * A * T * O * R
+Welcome to my calculator
+Type 
+1 to add, 
+2 to subtract, 0 to quit 
+>> 2
+Enter first number >> 5
+Enter second number >> 4
+1.0
+ * P * Y * T * H * O * N *   * C * A * L * C * U * L * A * T * O * R
+Welcome to my calculator
+Type 
+1 to add, 
+2 to subtract, 0 to quit 
+>> 0
+Quitting...
+```
+
+**Extension**: integrate with any of the previous tasks. For example, to do multiple unit conversion, not just miles to km or modify the previous task to say multiple things based on a user’s choice. 
+
+## Task 7
+
+Click to open task file : [task-7.py](open_file "04-funcsubs/task-7.py").
+
+Extend the program to perform multiplication and division.

@@ -4,4 +4,3 @@
 def fn_hw():
     return "Hello" + " " + "World"
 print(fn_hw())
-
