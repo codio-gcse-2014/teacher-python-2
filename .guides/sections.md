@@ -43,8 +43,6 @@ Run the program by pressing the 'Run File' button in the top menu.
 
 You will hopefully see the message `Hello World`.
 
-This program prints out “Hello World”. 
-
 - Beginning programmers often forget to separate words with spaces, and so we explicitly put `“ “` (space inside the speech marks), to remind that we need a space. The code that is indented after the `def` is the body of the function, which we later use (no indentation when using).
 
 This program is analogous to:
@@ -148,6 +146,8 @@ Sold!
 ---
 title: Procedural programming
 files: []
+layout: ""
+step: 02-procedures
 
 ---
 We can make this even more proper by packaging the three sub calls into one main sub and then only calling that sub. This is useful for the future when you might want to trigger a lot of subs with just one button press in GUI.
@@ -224,8 +224,214 @@ print(“test”)
 ```
 she just wants to type `p(“test”)`. Can Python oblige?
 ---
-title: Example section 4
-editable: true
+title: Functions
+files: []
+layout: ""
+step: 03-functions
 
 ---
-Some **awesome** content 4
+So far, we only used subs. Functions are more flexible and more interactive. By returning a value they can influence how the rest of program will run, while subs wouldn’t do so as effectively. Let’s rewrite the sub as a function:
+
+## Task 1
+
+Click to open task file : [task-1.py](open_file "03-functions/task-1.py").
+
+Run the program by pressing the 'Run File' button in the top menu.
+
+You will hopefully see the message `Hello World`.
+
+The return statement terminates the function (it will ignore any lines that follow it in its indented block but it also returns a value, a list, another function, etc. This also changes how we use functions. 
+
+Rather than just calling them, we assign them – we can print them, change a variable’s value by it. 
+
+Functions can be said to be used as “self-updating variables”.
+
+## Task 2
+
+Click to open task file : [task-2.py](open_file "03-functions/task-2.py").
+
+Run the program by pressing the 'Run File' button in the top menu which should output
+
+
+```python
+5
+72
+31
+```
+- notice that every time we called the function it recalculated the random value
+
+## Task 3
+
+Click to open task file : [task-3.py](open_file "03-functions/task-3.py").
+
+Run the program by pressing the 'Run File' button in the top menu.
+
+You will hopefully see the message `Hello World` again
+
+## Task 4
+
+Click to open task file : [task-4.py](open_file "03-functions/task-4.py").
+
+Run the program by pressing the 'Run File' button in the top menu and you will see the message `Hello World` again.
+
+In Task 3 the function is “called” from a print, in Task 4 the function is assigned to a variable which is then in turn “called” by the print. 
+
+## Task 5
+
+Taking two parameter inputs into a sub
+
+Click to open task file : [task-5.py](open_file "03-functions/task-5.py").
+
+Run the program by pressing the 'Run File' button in the top menu
+
+Here we are telling our function to expect two parameters, we then “pass in” the words which are then printed by the function and you see:
+
+```python
+Hello World
+Two parameters walk into a sub…
+```
+
+## Task 6
+
+Taking two parameter inputs into a function
+
+The only difference between this and the previous task – we are using a function that return values, rather than a sub that does not.
+
+Click to open task file : [task-6.py](open_file "03-functions/task-6.py").
+
+Run the program by pressing the 'Run File' button in the top menu to see:
+```python
+Using a function with two parameters taken from
+ global variables a, b
+Monty Python
+```
+## Task 7
+
+Using a function as an input: inserting two functions, each with two inputs, as an input into the third function of the same type
+
+Since a function is a self-updating variable, it can be assigned to a variable, and even used as a parameter into a different function or sub. 
+
+While this is not something done often, it does make for a good practice of sequencing and making pupils confident with parameter passing.
+
+Click to open task file : [task-7.py](open_file "03-functions/task-7.py").
+
+Run the program by pressing the 'Run File' button in the top menu to see
+```python
+Insert a function into another function? no problem
+ here the function is inserted twice into itself
+Monty Python Monty Python
+```
+
+## Task 8
+
+Taking three input parameters into a function
+
+Click to open task file : [task-8.py](open_file "03-functions/task-8.py").
+
+Run the program by pressing the 'Run File' button in the top menu to see
+```python
+Taking more parameters
+Hello new world
+```
+
+## Task 9
+
+Taking an unlimited number of input parameters into a function using a wildcard (asterisk) 
+
+Wildcard (asterisk) represents all possible inputs for when you don’t know how many user will input. 
+
+The wildcard followed by an arbitrary name (here we used args) is “unpacked” into a list which contains all the elements sent to it. 
+
+This is useful for the times when you don’t know how many inputs the user will provide. 
+
+For example, calculating the average of a series of numbers, which might vary from case to case.
+
+
+Click to open task file : [task-9.py](open_file "03-functions/task-9.py").
+
+Run the program by pressing the 'Run File' button in the top menu to see
+```python
+Taking x parameters
+('new', 'world')
+Hello new world
+```
+
+## Task 10
+
+This builds on Task 7.
+
+We will re-use the function that takes two strings as inputs (inside its brackets) and joins them (inserting a space in between), returning one string out. 
+
+We will create a list and insert each item of that list (there are only two, of course) as inputs into the function. 
+
+This is not a good practice, Python programmers just pass the whole list and unpack it, as we will see later. 
+
+However, this is a good opportunity to revise accessing list elements.
+
+Click to open task file : [task-10.py](open_file "03-functions/task-10.py").
+
+Run the program by pressing the 'Run File' button in the top menu to see
+```python
+getting input parameters off lists
+Monty Python
+```
+
+## Task 11
+
+Click to open task file : [task-11.py](open_file "03-functions/task-11.py").
+
+This program takes the whole list as a parameter and computes its average. Read the comments that explain what is going on (# comment)
+
+Run the program by pressing the 'Run File' button in the top menu to see
+```python
+3.5
+```
+- Note, that “sum” and “len” are built-in Python functions and come in very handy.
+
+
+
+## Task 12 (optional task for advanced pupils only)
+
+Finding out the rank of a number in a list. This is one of the standard pseudocode tasks that comes up in various exams at GCSE level. The pupils will be familiar with this concept from their GCSE. This and the next task, while optional, provide an example of Python working with lists that are passed as a parameter into a function.
+
+The function in this program is to return a ranking of a provided value in a given list. This is a more traditional method, where we iterate through a list (passed in as “l”) and compare each item (“x”) to n. If it is larger, we increment our counter. In the end, we know how many items were larger than n which gives us n’s ranking.
+
+Click to open task file : [task-12.py](open_file "03-functions/task-12.py").
+
+
+## Task 13 (optional task for advanced pupils only)
+
+Using Python’s built-in max function.
+
+Implement the following program and create the pseudocode for it.
+
+This function also returns a ranking of a provided value in a given list. 
+
+However, it achieves the result differently – by using Python’s built-in features. 
+
+It takes the value and the list as input parameters.
+
+It works by utilising Python’s built-in “max” function. 
+
+We are comparing the parameter “n” to each list max (the list is passed in as “l”). If the max is bigger than our n, we remove it and increment the counter, until n equals max. 
+
+This way, we know how many numbers were larger than n – which is what a ranking is.
+
+Click to open task file : [task-13.py](open_file "03-functions/task-13.py").
+
+## Task 14 
+Subs can be stored in lists. Run a string as a command through “exec”.
+
+Click to open task file : [task-14.py](open_file "03-functions/task-14.py").
+
+The SWITCH statement (otherwise known as CASE STATEMENT) is on the syllabus and is widely used in other languages, but not in Python. 
+
+The SWITCH statement is a version of an IF ELSE IF ELSE structure. 
+
+The main difference is that IF ELSE IF… allows for multiple values of multiple variables to be used, while the SWITCH statement usually looks at just one variable and based on various values of this variable, it will branch accordingly. 
+
+The creator of Python thought it was not needed as IF is more universal and capable.
+
+
+
+
