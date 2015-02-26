@@ -745,3 +745,87 @@ Assume the following order of validation:
 - Numeric check.
 
 Click to open task file : [task-5.py](open_file "05-validation/task-5.py").
+---
+title: Iteration and Subs
+files: []
+layout: ""
+step: 06-iteration
+
+---
+By abbreviating a lot of lines of code to just one, we can automate better. 
+
+## Task 1
+
+Here is an example of a loop that repeatedly calls a function name:
+
+Click to open task file : [task-1.py](open_file "06-iteration/task-1.py").
+
+We are reusing an earlier sub. The only difference we are “casting a spell” in a loop using Python’s “for … in range (beg, end)” structure. The program should print out a lot of lines.
+
+Procedural programming relies on orderly calling of procedures (aka subs) and ideally, each sub should relate to your initial planning of a program (analysis and design stage).
+
+E.g. let’s say we had planned a program that accepts the number of seconds from the user and returns the equivalent in minutes, so if a user types in 60 the program will output 1, etc. In structured English, this would be:
+- Main program:
+- Ask user for seconds input
+- Convert seconds to minutes
+- Output minutes
+
+## Task 2
+
+Here is a program that will attempt to do this task without subs:
+
+Click to open task file : [task-2.py](open_file "06-iteration/task-2.py").
+
+Run the program by pressing the 'Run File' button in the top menu.
+
+It should output:
+```python
+Enter time in seconds >> 360
+6.0 minutes
+```
+
+Variables that only exist inside subs and functions are called “local variables”. They are invisible to the rest of the program. 
+
+This is done for security (harder to intercept communication between subroutines) and to save memory (the memory locations taken by local variables are cleared and ready to be reused as soon as the sub/function are finished, while the global variables persist, “hogging” the memory. 
+
+We define global variables as those declared/first used outside of any sub or function. 
+
+Python programmers are discouraged from using global variables, if possible, Parameter passing and local variables are preferred. 
+
+If you do use global variables, by default, subs/functions can read its value but not change it. 
+
+To authorise a sub or a function to change the value of a global variable, we need to “redeclare” it inside this sub with the word global in front. 
+
+Another interesting feature of Python, if you have a global and a local variable with the same name, inside the sub where the local variable is used, it is the default variable Python will work with. Avoid this practice!
+
+The following looks right (for those coming from other programming languages) but it doesn’t work unless we authorise our subs to modify our global variables. 
+
+Unlike other languages, this feature is disabled for security and memory reasons, unless you explicitly mean to do it by adding the line global &lt;variable name&gt; into the sub.
+
+## Task 3
+
+Click to open task file : [task-3.py](open_file "06-iteration/task-3.py").
+
+Run the program by pressing the 'Run File' button in the top menu.
+
+It should output:
+```python
+Enter time in seconds >> 300
+0
+```
+This is wrong, so it clearly doesn’t work properly. 
+
+The problem is that our main_program sub is not authorised to modify global variable global_output_minutes. 
+Instead, Python creates a local variable with the same name and that value is not shared with the rest of the program. So, we need to modify the program as follows :
+
+## Task 4
+
+Click to open task file : [task-4.py](open_file "06-iteration/task-4.py").
+
+Run the program by pressing the 'Run File' button in the top menu.
+
+It should output:
+```python
+Enter time in seconds >> 300
+5.0
+```
