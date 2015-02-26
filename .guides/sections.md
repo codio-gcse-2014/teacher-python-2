@@ -1079,3 +1079,145 @@ Extend the program to generate one more ticket, the “winning ticket” and the
 
 
 
+
+---
+title: Recursion
+files: []
+layout: ""
+step: 08-recursion
+
+---
+### Iteration vs Recursion
+Iteration, also known as looping, runs the same block of code multiple times. 
+
+We can say, this block of code gets “called” a number of times. 
+
+In conditional loops (“while” loops), the block gets called until a condition is met, in non-conditional loops (“for” loops) the block gets called a predetermined number of times. 
+
+The part of the program that calls this block repeatedly needs to be determined and coordinated with the repeated block which is sometimes complicated. 
+
+Often, iteration follows a very particular pattern which can be easily repeated. Then we can get the block of code to call itself until a condition is true.
+ 
+So, if iteration is wrapping a loop inside the block of code, recursion is wrapping a block inside the loop.
+
+## Task 1
+
+Click to open task file : [task-1.py](open_file "08-recursion/task-1.py").
+
+Run the program by pressing the 'Run File' button in the top menu.
+
+It should output:
+```python
+yeknom
+```
+
+## Task 2
+
+Click to open task file : [task-2.py](open_file "08-recursion/task-2.py").
+
+Run the program by pressing the 'Run File' button in the top menu.
+
+It should output:
+```python
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+blast off
+```
+## Task 3
+
+### Adding numbers from 0 to n:
+
+Click to open task file : [task-3.py](open_file "08-recursion/task-3.py").
+
+Run the program by pressing the 'Run File' button in the top menu.
+
+It should output:
+```python
+passing 3
+passing 2
+passing 1
+6
+```
+Notice, how recursion works backwards to generate the result. We can say that rather than running a loop inside a function, we run a loop outside the function.
+
+## Task 4
+
+All recursive solutions can also be done with traditional iteration (loops). We can illustrate this fact
+
+Click to open task file : [task-4.py](open_file "08-recursion/task-4.py").
+
+Run the program by pressing the 'Run File' button in the top menu.
+
+It should output:
+```python
+passing 3
+passing 2
+passing 1
+6
+looking at 0
+1
+looking at 1
+3
+looking at 2
+6
+```
+## Task 5
+
+This program deals with an old programming problem of giving minimum number of coins as change. It lends itself to recursion
+
+Click to open task file : [task-5.py](open_file "08-recursion/task-5.py").
+
+Run the program by pressing the 'Run File' button in the top menu.
+
+It should output:
+```python
+change for 73  is  50 20 2 1
+change for 98  is  50 20 20 5 2 1
+change for 63  is  50 10 2 1
+change for 1  is  1
+change for 58  is  50 5 2 1
+change for 11  is  10 1
+change for 19  is  10 5 2 2
+change for 80  is  50 20 10
+change for 89  is  50 20 10 5 2 2
+```
+
+## Task 6
+
+This is the iterative solution to the same:
+
+Click to open task file : [task-6.py](open_file "08-recursion/task-6.py").
+
+Run the program by pressing the 'Run File' button in the top menu.
+
+It should output:
+```python
+new program run ************ 
+checking over 20
+checking 21
+checking over 1
+checking 1
+checking 0
+change for 21  is [20, 1]
+new program run ************ 
+checking over 50
+96
+checking over 20
+checking 46
+checking over 20
+checking 26
+checking over 5
+checking 6
+checking over 1
+checking 1
+checking 0
+change for 96  is [50, 20, 20, 5, 1]
+```
