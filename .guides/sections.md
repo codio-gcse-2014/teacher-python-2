@@ -146,12 +146,83 @@ Going twice,
 Sold!
 ```
 ---
-title: Example section 3
-editable: true
+title: Procedural programming
+files: []
 
 ---
-Some **awesome** content 3
+We can make this even more proper by packaging the three sub calls into one main sub and then only calling that sub. This is useful for the future when you might want to trigger a lot of subs with just one button press in GUI.
 
+## Task 1
+
+Introducing the “main” function – the foundation of imperative programming paradigm
+
+Click to open task file : [task-1.py](open_file "02-procedures/task-1.py").
+
+Run the program by pressing the 'Run File' button in the top menu.
+
+The advantage of using “main” which calls other subs – it makes the code more efficient by not having to type multiple subs, as long as they are triggered in the same order.
+
+## Task 2
+
+Input parameters – the brackets next to a function/sub’s name don’t have to be empty.  It’s like the tongue-and-groove in woodwork – we can chain functions/subs together and the brackets will “pipe” the data between them.
+
+Click to open task file : [task-2.py](open_file "02-procedures/task-2.py").
+
+Run the program by pressing the 'Run File' button in the top menu which should output
+
+
+```python
+160.0
+hello there
+some more tasks
+subs are good for triggering many lines with one
+```
+
+## Task 3
+
+Click to open task file : [task-3.py](open_file "02-procedures/task-3.py").
+
+Write a program that asks a user for a distance in miles and returns the equivalent in km.
+
+As a reminder, in Python we can ask a user for information by using the input() function, e.g.
+```python
+Distance=input(“Enter distance”)
+```
+
+When the data we need is numeric (will be used in calculations), we need to convert (aka “cast”) it to a numeric data type. 
+e.g.
+```python
+int(input(“Enter a whole number”))
+```
+will result in a integer value
+```python
+float(input(“Enter a whole number”)) 
+```
+will result in a real value (number with decimals)
+
+You can use this conversion factor: 1 mile=1.6 km.
+
+It should output:
+```python
+Enter distance in miles: 100
+160.0
+```
+
+## Challenge Exercise
+
+Click to open task file : [challenge-1.py](open_file "02-procedures/challenge-1.py").
+
+“Hacking” Python – modifying its built-in commands.
+
+A pupil can’t be bothered to type out the print command and wants it shortened to 
+```python
+p
+``` 
+e.g. instead of 
+```python
+print(“test”)
+```
+she just wants to type `p(“test”)`. Can Python oblige?
 ---
 title: Example section 4
 editable: true
