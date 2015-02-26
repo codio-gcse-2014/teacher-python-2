@@ -1,7 +1,7 @@
 # Task 3
 # Press the 'Run File' menu button to execute
 
-initialise our variables
+#initialise our variables
 global_input_seconds=0 
 global_output_minutes=0
 

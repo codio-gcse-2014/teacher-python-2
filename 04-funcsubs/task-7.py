@@ -5,7 +5,7 @@ def fancy_banner(my_str): #start function definition
     temp_str=""   	#default variable value to empty string
     delimiter=" * " #set the delimiter to an asterisk
     for letter in my_str: #run through every letter in a string
-        temp_str+=delimiter+letter ‘’’increment the destination string by each letter plucked from the source string (my_str) followed by an asterisk. Why do that? It will write any string passed into this function spaced with asterisks making it more visible.’’’
+        temp_str+=delimiter+letter #increment the destination string by each letter plucked from the source string (my_str) followed by an asterisk. Why do that? It will write any string passed into this function spaced with asterisks making it more visible.
     return temp_str #function stops and passes the value on
 
 def get_op(): #this function returns a menu of choices to user

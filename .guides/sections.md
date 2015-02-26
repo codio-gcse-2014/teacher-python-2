@@ -145,7 +145,9 @@ Sold!
 ```
 ---
 title: Procedural programming
-files: []
+files:
+  - action: close
+    path: "#tabs"
 layout: ""
 step: 02-procedures
 
@@ -225,7 +227,9 @@ print(“test”)
 she just wants to type `p(“test”)`. Can Python oblige?
 ---
 title: Functions
-files: []
+files:
+  - action: close
+    path: "#tabs"
 layout: ""
 step: 03-functions
 
@@ -250,7 +254,7 @@ Functions can be said to be used as “self-updating variables”.
 
 Click to open task file : [task-2.py](open_file "03-functions/task-2.py").
 
-Run the program by pressing the 'Run File' button in the top menu which should output
+Run the program by pressing the 'Run File' button in the top menu which should output something similar to:
 
 
 ```python
@@ -289,6 +293,7 @@ Here we are telling our function to expect two parameters, we then “pass in”
 ```python
 Hello World
 Two parameters walk into a sub…
+Hello World
 ```
 
 ## Task 6
@@ -512,7 +517,9 @@ The creator of Python thought it was not needed as IF is more universal and capa
 
 ---
 title: Combining functions and subs. Sharing data between them
-files: []
+files:
+  - action: close
+    path: "#tabs"
 layout: ""
 step: 04-funcsubs
 
@@ -680,7 +687,9 @@ Click to open task file : [task-7.py](open_file "04-funcsubs/task-7.py").
 Extend the program to perform multiplication and division.
 ---
 title: Validation
-files: []
+files:
+  - action: close
+    path: "#tabs"
 layout: ""
 step: 05-validation
 
@@ -747,7 +756,9 @@ Assume the following order of validation:
 Click to open task file : [task-5.py](open_file "05-validation/task-5.py").
 ---
 title: Iteration and Subs
-files: []
+files:
+  - action: close
+    path: "#tabs"
 layout: ""
 step: 06-iteration
 
@@ -831,7 +842,9 @@ Enter time in seconds >> 300
 ```
 ---
 title: Parameter Passing (parameter inputs)
-files: []
+files:
+  - action: close
+    path: "#tabs"
 layout: ""
 step: 07-parameters
 
@@ -880,11 +893,8 @@ Enter time in seconds >> 300
 5.0
 ```
 
-## Task 4
-
 Rework the program to not feature global variables at all, through the use of parameter passing – which is a safe and memory-efficient Pythonic way
 
-Click to open task file : [task-4.py](open_file "07-parameters/task-4.py").
 
 ### Lambda functions (getting outdated)
 There is another way to define functions in Python in a style of “functional programming”. 
@@ -901,16 +911,16 @@ This is equivalent to the Task 2. It is harder to read but faster to type, so it
 
 We need to be aware of this functional style as pupils often come across it on programming forums.
 
-## Task 5
+## Task 4
 ### Generating lottery tickets
 
 This is a program that makes use of random number generation and appending to a list and follows principles of procedural programming
 
-Click to open task file : [task-5.py](open_file "07-parameters/task-5.py").
+Click to open task file : [task-4.py](open_file "07-parameters/task-4.py").
 
 Run the program by pressing the 'Run File' button in the top menu.
 
-It should output:
+It should output something similar to:
 ```python
 Welcome to Station Rd Corner Store. Next draw tomorrow.
 How many lottery tickets are you buying today? >> 3
@@ -926,11 +936,11 @@ Here are your tickets, it will be £6.
 - `if n not in lucky` is a handy Python way to check if an item exists in a list, we use it to generate non-repeating numbers, as of course, real lottery winning numbers don’t have repeated numbers in the same draw.
 -We also use the format “mail-merge” style facility where curly brackets inside a string can be replaced with a variable brought into the string.
 
-## Task 6
+## Task 5
 
 Here is the code for checking if two lists share any items:
 
-Click to open task file : [task-6.py](open_file "07-parameters/task-6.py").
+Click to open task file : [task-5.py](open_file "07-parameters/task-5.py").
 
 Run the program by pressing the 'Run File' button in the top menu.
 
@@ -945,7 +955,7 @@ Rework the program so that there is a function called `check_common` that handle
 
 Also then rework the `check_common` function into `check_common_para` function which takes the two lists as parameter inputs
 
-## Task 7
+## Task 6
 
 ### Major extension:
 We reworked our lottery ticket buying program to create a nested list of lottery numbers rather than just print them out.
@@ -969,12 +979,13 @@ Output:
 
 Let’s make a first move in this game.
 
-Click to open task file : [task-7.py](open_file "07-parameters/task-7.py").
+Click to open task file : [task-6.py](open_file "07-parameters/task-6.py").
 
 Run the program by pressing the 'Run File' button in the top menu.
 
 It should output:
 ```python
+[[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]
 [[' ', 'x', ' '], [' ', 'x', ' '], [' ', 'x', ' ']]
 ```
 We only put one x, why is there 3? This is because all 3 elements in board refer to the same list called row. When we change row, it updates all the references to itself in board
@@ -1015,10 +1026,10 @@ Would then output:
 ```python
 [[' ', ' ', ' '], [' ', 'x', ' '], [' ', ' ', ' ']]
 ```
-## Task 8
+## Task 7
 ### A simple 2 player Noughts and Crosses
 
-Click to open task file : [task-8.py](open_file "07-parameters/task-8.py").
+Click to open task file : [task-7.py](open_file "07-parameters/task-7.py").
 
 Run the program by pressing the 'Run File' button in the top menu.
 
@@ -1050,10 +1061,10 @@ GAME OVER!
 
 How would you add a facility to tell who won by checking rows, columns and diagonals?
 
-## Task 9
+## Task 8
 We come back to the station road program which now features nested lists.
 
-Click to open task file : [task-9.py](open_file "07-parameters/task-9.py").
+Click to open task file : [task-8.py](open_file "07-parameters/task-8.py").
 
 Run the program by pressing the 'Run File' button in the top menu.
 
@@ -1082,7 +1093,9 @@ Extend the program to generate one more ticket, the “winning ticket” and the
 
 ---
 title: Recursion
-files: []
+files:
+  - action: close
+    path: "#tabs"
 layout: ""
 step: 08-recursion
 
@@ -1158,10 +1171,6 @@ Run the program by pressing the 'Run File' button in the top menu.
 
 It should output:
 ```python
-passing 3
-passing 2
-passing 1
-6
 looking at 0
 1
 looking at 1
@@ -1177,7 +1186,7 @@ Click to open task file : [task-5.py](open_file "08-recursion/task-5.py").
 
 Run the program by pressing the 'Run File' button in the top menu.
 
-It should output:
+It should output something similar to:
 ```python
 change for 73  is  50 20 2 1
 change for 98  is  50 20 20 5 2 1
@@ -1198,7 +1207,7 @@ Click to open task file : [task-6.py](open_file "08-recursion/task-6.py").
 
 Run the program by pressing the 'Run File' button in the top menu.
 
-It should output:
+It should output something similar to:
 ```python
 new program run ************ 
 checking over 20

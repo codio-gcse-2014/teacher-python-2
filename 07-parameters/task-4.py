@@ -1,24 +1,25 @@
 # Task 4
 # Press the 'Run File' menu button to execute
 
-#initialise our variables
-global_input_seconds=0 
-global_output_minutes=0
+import random
 
-#function definitions block
-def get_seconds() -> int:
-    return int(input("Enter time in seconds >> "))
+def r_n():
+    return random.randint(1,49)
 
-def convert_to_minutes(local_input_seconds) ->float:
-    return local_input_seconds/60
+def lottery_t():
+    n=0
+    lucky=[]
+    while len(lucky)<8:
+        n=r_n()
+        if n not in lucky:
+            lucky.append(n)
+    return lucky
 
-def output_result() ->str:
-    print(global_output_minutes)
+def main():
+    print("Welcome to Station Rd Corner Store. Next draw tomorrow.")
+    num_of_t=int(input("How many lottery tickets are you buying today? >> "))
+    print("Here are your tickets, it will be £{}.".format(num_of_t*2))
+    for j in range(num_of_t):
+        print(lottery_t())
 
-def main_program_sub():
-    global global_output_minutes
-    global_input_seconds=get_seconds()
-    global_output_minutes=convert_to_minutes(global_input_seconds)
-    output_result()
-
-main_program_sub()
+main()
